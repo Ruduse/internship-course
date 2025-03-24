@@ -1,3 +1,4 @@
+Day1
 Bài tập
 - Trả lời câu hỏi:
 
@@ -52,7 +53,8 @@ NestJS là gì?
 ```sh
 NestJS là một framework Node.js mạnh mẽ để xây dựng các ứng dụng phía server hiệu quả và có khả năng mở rộng. Được viết bằng TypeScript, NestJS tận dụng các tính năng của TypeScript để cung cấp một kiến trúc module hóa, giúp quản lý và mở rộng ứng dụng dễ dàng. Nó kết hợp các nguyên tắc của lập trình hướng đối tượng, lập trình hàm và lập trình phản ứng, đồng thời tích hợp tốt với các thư viện Node.js phổ biến như Express hoặc Fastify. NestJS được thiết kế để giúp các nhà phát triển xây dựng các ứng dụng server-side mạnh mẽ và dễ bảo trì.
 
-ESLint là gì?```
+```
+ESLint là gì?
 ```sh
 ​ESLint là một công cụ phân tích mã nguồn tĩnh (static code analysis) dành cho JavaScript và các ngôn ngữ dựa trên JavaScript như TypeScript. Nó giúp phát hiện các lỗi cú pháp, các vấn đề về coding style và những lỗi tiềm ẩn khác trong mã nguồn. Bằng cách tuân thủ các quy tắc mà ESLint đề xuất, bạn có thể đảm bảo mã nguồn của mình nhất quán và dễ bảo trì hơn
 ```
