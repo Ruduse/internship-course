@@ -1,3 +1,6 @@
+Link drive tìm hiểu và biên soạn tài liệu : https://drive.google.com/drive/folders/1tY9oESu6egeywaP2migwMIn_dFexupiq?usp=drive_link
+
+
 cấu trúc thư mục trong nest js
 
 ```sh
