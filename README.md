@@ -73,3 +73,85 @@ git push -u origin tuan-1
 Lệnh này sẽ đẩy nhánh "tuan-1" lên remote "origin" và thiết lập nhánh theo dõi upstream.
 
 ```
+
+Để cải thiện chất lượng và định dạng mã nguồn trong dự án NestJS, việc tích hợp ESLint và Prettier là rất quan trọng. Dưới đây là hướng dẫn chi tiết để cài đặt và cấu hình hai công cụ này trong dự án của bạn:
+
+```sh
+
+Bước 1: Cài đặt các gói cần thiết
+
+Trước tiên, bạn cần cài đặt các gói liên quan đến ESLint và Prettier:
+
+
+npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin
+Bước 2: Khởi tạo tệp cấu hình ESLint
+
+Tiếp theo, tạo tệp cấu hình ESLint bằng cách chạy lệnh sau:
+
+
+npx eslint --init
+Trong quá trình này, bạn sẽ được hỏi một số câu hỏi để thiết lập cấu hình phù hợp với dự án của mình. Hãy chọn các tùy chọn phù hợp với dự án NestJS sử dụng TypeScript.
+
+Bước 3: Cấu hình ESLint và Prettier
+
+Sau khi khởi tạo, mở tệp .eslintrc.js và cập nhật như sau:
+
+
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'plugin:prettier/recommended',
+  ],
+  plugins: ['@typescript-eslint', 'prettier'],
+  rules: {
+    'prettier/prettier': 'error',
+    // Các quy tắc khác của bạn
+  },
+};
+Tạo tệp .prettierrc trong thư mục gốc của dự án với nội dung:
+
+{
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "printWidth": 80,
+  "trailingComma": "all"
+}
+Bước 4: Thêm các script vào package.json
+
+Để dễ dàng chạy ESLint và Prettier, thêm các script sau vào tệp package.json:
+
+
+"scripts": {
+  "lint": "eslint 'src/**/*.{js,ts}'",
+  "lint:fix": "eslint 'src/**/*.{js,ts}' --fix",
+  "format": "prettier --write 'src/**/*.{js,ts,json,css,md}'"
+}
+Bước 5: Cài đặt plugin cho trình soạn thảo
+
+Để trải nghiệm tốt hơn, bạn nên cài đặt các plugin ESLint và Prettier cho trình soạn thảo của mình, chẳng hạn như VSCode.
+
+Bước 6: Tích hợp Husky và lint-staged (Tùy chọn)
+
+Để đảm bảo mã nguồn luôn được kiểm tra trước khi commit, bạn có thể sử dụng Husky và lint-staged:
+
+
+npm install --save-dev husky lint-staged
+Thêm cấu hình sau vào package.json:
+
+
+"husky": {
+  "hooks": {
+    "pre-commit": "lint-staged"
+  }
+},
+"lint-staged": {
+  "src/**/*.{js,ts}": [
+    "eslint --fix",
+    "prettier --write"
+  ]
+}
+
+```
