@@ -22,7 +22,9 @@
   },
   "dependencies": {
     "@nestjs/mapped-types": "*",
+    "@nestjs/mongoose": "^11.0.3",
     "@nestjs/platform-express": "^11.0.1",
+    "mongoose": "^8.13.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },
@@ -73,7 +75,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  },"lint-staged": {
+  },
+  "lint-staged": {
     "src/**/*.{js,ts}": [
       "eslint --fix",
       "prettier --write"

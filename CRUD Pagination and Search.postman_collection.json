@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "d9676518-f91a-41a2-aede-57d176c3a30c",
+		"name": "CRUD Pagination and Search",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32032293",
+		"_collection_link": "https://normal-0811.postman.co/workspace/Company~95d9497f-3ec8-408d-ba84-460c04d09d74/collection/32032293-d9676518-f91a-41a2-aede-57d176c3a30c?action=share&source=collection_link&creator=32032293"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:3000/users"
+			},
+			"response": []
+		},
+		{
+			"name": "get all user theo pagination and search",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Nam Nguyễn\",\r\n  \"role\": \"superadmin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/users/1"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:3000/users/2"
+			},
+			"response": []
+		}
+	]
+}
