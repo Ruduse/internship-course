@@ -4,12 +4,19 @@ import { User } from './entities/user.entity';
 @Injectable()
 export class UsersService {
   private users: User[] = [];
+create(users: User | User[]): User | User[] {
+  if (!Array.isArray(users)) {
+    users = [users]; // Chuyển thành mảng nếu chỉ có một user
+  }
 
-  create(user: User): User {
+  users.forEach(user => {
     user.id = this.users.length + 1;
     this.users.push(user);
-    return user;
-  }
+  });
+
+  return users;
+}
+
 
   findAll(): User[] {
     return this.users;
@@ -27,9 +34,11 @@ export class UsersService {
   }
 
   remove(id: number): boolean {
+    console.log('Trying to delete ID:', id);
     const index = this.users.findIndex(user => user.id === id);
     if (index === -1) return false;
     this.users.splice(index, 1);
     return true;
   }
+  
 }
