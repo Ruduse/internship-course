@@ -4,16 +4,18 @@ import { User } from './entities/user.entity';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) {}// ⬅ Inject UsersService vào Controller
+
 
   @Post()
-  create(@Body() user: User) {
-    return this.usersService.create(user);
+  create(@Body() users: User | User[]) {
+    return this.usersService.create(users);
   }
+  
 
   @Get()
   findAll() {
-    return this.usersService.findAll();
+    return this.usersService.findAll();// ⬅ Gọi service đã inject.UsersService không cần tự tạo instance (new UsersService()), mà NestJS sẽ tự inject vào UsersController.
   }
 
   @Get(':id')

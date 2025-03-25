@@ -30,7 +30,16 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": "http://localhost:3000/users"
+				"body": {
+					"mode": "raw",
+					"raw": "  [\r\n        {\r\n            \"name\": \"Nam\",\r\n            \"email\": \"nam123@example.com\"\r\n        },\r\n        {\r\n            \"name\": \"Linh\",\r\n            \"email\": \"linh567@example.com\"\r\n        },\r\n        {\r\n            \"name\": \"Hùng\",\r\n            \"email\": \"hung789@example.com\"\r\n        },\r\n        {\r\n            \"name\": \"Trang\",\r\n            \"email\": \"trang345@example.com\"\r\n        },\r\n        {\r\n            \"name\": \"Tùng\",\r\n            \"email\": \"tung999@example.com\"\r\n        },\r\n        {\r\n            \"name\": \"Minh\",\r\n            \"email\": \"minh456@example.com\"\r\n        },\r\n        {\r\n            \"name\": \"Bình\",\r\n            \"email\": \"binh234@example.com\"\r\n        },\r\n        {\r\n            \"name\": \"Lan\",\r\n            \"email\": \"lan876@example.com\"\r\n        }\r\n    ]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/users/"
 			},
 			"response": []
 		},
