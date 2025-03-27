@@ -1,32 +1,23 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
-import { UserService } from '../service/user.service';
-import { CreateUserDto,UpdateUserDto } from '../dto/user.dto';
-@Controller('users')
+import { Controller, Get, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { Roles } from 'src/auth/roles.decorator';
+import { RolesGuard } from 'src/auth/roles.guard';
+
+@Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
-
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
+  // API này chỉ cho phép Admin truy cập
+  @Get('admin')
+  @UseGuards(JwtAuthGuard,RolesGuard)
+  @Roles('admin')
+  getAdminData() {
+    return { message: 'Chỉ admin mới thấy nội dung này' };
   }
 
-  @Get()
-  findAll(@Query('page') page = 1, @Query('limit') limit = 10, @Query('search') search = '') {
-    return this.userService.findAll(+page, +limit, search);
-  }
+  // API này cho phép tất cả user truy cập
+  @Get('profile')
+  @UseGuards(JwtAuthGuard) //  Chỉ cần kiểm tra token, không cần kiểm tra role
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userService.findOne(id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.userService.update(id, updateUserDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.remove(id);
+  getUserProfile() {
+    return { message: 'Thông tin user' };
   }
 }
