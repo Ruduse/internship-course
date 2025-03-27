@@ -16,8 +16,16 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './users/module/user.module';
 import { AuthModule } from './auth/auth.module';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { LoggingInterceptor } from './interceptors/logging.interceptor';
 
 @Module({
+  providers:[
+    {
+      provide: APP_INTERCEPTOR,
+      useClass:LoggingInterceptor,
+    },
+  ],
   imports: [
     MongooseModule.forRoot('mongodb://localhost:27017/nestjs'), // Kết nối MongoDB
     UserModule, AuthModule,

@@ -19,6 +19,7 @@ import { Controller, Post, Body, Logger } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { Role } from 'src/users/schema/user.schema';
 import { CreateUserDto } from 'src/users/dto/user.dto';
+import { EmailValidationPipe } from 'src/pipes/email-validation.pipe';
 
 @Controller('auth')
 export class AuthController {
@@ -34,7 +35,11 @@ export class AuthController {
 //     return this.authService.register(body.email, body.password, body.role);
 
 @Post('register')
-async register(@Body() createUserDto: CreateUserDto) {
+async register(
+  @Body('email', EmailValidationPipe) email: string,
+  @Body() createUserDto: CreateUserDto) 
+
+{
   this.logger.log('Gọi API /auth/register');
   return this.authService.register(createUserDto.email, createUserDto.password, createUserDto.role);
 }
